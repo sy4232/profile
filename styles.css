@@ -1,0 +1,331 @@
+/* Enable smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* === VARIABLES === */
+:root {
+  --color-bg: #f8f8f8;
+  --color-text: #2e3a59;
+  --color-heading: #1a2b4c;
+  --color-accent: #dbe9f4;
+  --color-shadow: rgba(31, 41, 55, 0.06);
+  --color-glass: rgba(255, 255, 255, 0.85);
+  --color-border: #d0d7e6;
+}
+
+.dark-mode {
+  --color-bg: #12141a;
+  --color-text: #d4d4dc;
+  --color-heading: #ffffff;
+  --color-accent: #29384a;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-glass: rgba(30, 30, 30, 0.7);
+  --color-border: #333b4c;
+}
+
+/* Dark Mode override for toggle button */
+.dark-mode .theme-toggle {
+  background: #ffffff;
+  color: #1a2b4c;
+  border: 1px solid #ccc;
+}
+
+/* Dark Mode override for print button */
+.dark-mode .print-button {
+  background: #ffffff;
+  color: #1a2b4c;
+  border: 1px solid #ccc;
+}
+
+/* === BASE STYLES === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* === LINKS === */
+a {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: var(--color-heading);
+}
+
+a svg {
+  fill: currentColor;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* === THEME TOGGLE BUTTON === */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 4.5rem;
+  background: var(--color-heading);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:hover {
+  background: #39465c;
+}
+
+/* === PRINT BUTTON === */
+.print-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-heading);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.print-button:hover {
+  background: #39465c;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 260px;
+  background: var(--color-glass);
+  backdrop-filter: blur(6px);
+  border-right: 1px solid var(--color-border);
+  box-shadow: 2px 0 8px var(--color-shadow);
+  padding: 2rem 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--color-heading);
+  margin-bottom: 0.25rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--color-heading);
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover,
+.sidebar a:focus {
+  background-color: var(--color-accent);
+  padding-left: 6px;
+  border-left: 3px solid var(--color-heading);
+}
+
+.sidebar a.active {
+  font-weight: bold;
+  border-left: 3px solid var(--color-heading);
+  background-color: var(--color-accent);
+  padding-left: 6px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.sidebar li {
+  margin: 0.75rem 0;
+}
+
+/* === CONTENT === */
+.content {
+  flex-grow: 1;
+  padding: 3rem 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* === GLASS CARD SECTIONS === */
+.glass-card {
+  background: var(--color-glass);
+  border-left: 2px solid var(--color-heading);
+  padding: 0.5rem 2rem;
+  margin-bottom: 3rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px var(--color-shadow);
+  backdrop-filter: blur(6px);
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* === SECTION LABEL === */
+.section-label {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--color-heading);
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+/* === HEADINGS === */
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: var(--color-heading);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--color-heading);
+  margin: 1rem 0 0.25rem;
+}
+
+h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  margin: 0.25rem 0;
+  color: var(--color-text);
+}
+
+p, li {
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.date {
+  font-size: 1rem;
+}
+
+/* === LISTS === */
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 1.2rem;
+}
+
+/* === ANIMATIONS === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 960px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .section-label {
+    display: none;
+  }
+}
+
+/* === PRINT STYLES === */
+@media print {
+  .theme-toggle,
+  .print-button,
+  .sidebar,
+  .section-label {
+    display: none !important;
+  }
+
+  body.dark-mode {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  body.dark-mode *,
+  body.dark-mode *::before,
+  body.dark-mode *::after {
+    background: transparent !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .glass-card {
+    box-shadow: none;
+    border-left: 4px solid #000;
+    page-break-inside: avoid;
+    background: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    color: #000 !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
